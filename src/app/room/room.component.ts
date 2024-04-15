@@ -16,7 +16,7 @@ export class RoomComponent {
 
   myId = uuid4();
   contactId = uuid4();
-  activatedUser: string ='';
+  activatedUser: string = this.myId;
   chatComponent = viewChild.required(ChatComponent);
   newMessage = signal<ChatMessage | null>(null);
   cdRef = inject(ChangeDetectorRef);
