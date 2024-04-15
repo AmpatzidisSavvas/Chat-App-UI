@@ -1,0 +1,26 @@
+<div class="mb-3 justify-between" style="display: flex; gap: 10px;">
+  <button
+    style="padding: 10px 20px; border: none; background-color: #4c95af;  color: white; cursor: pointer; border-radius: 20px;"
+    [ngClass]="{'highlight': activatedUser === contactId}"
+    (click)="changeActiveUser(contactId)">
+    <i class="fas fa-user-friends mr-1"></i>User 2
+  </button>
+  <button
+    style="padding: 10px 20px; border: none; background-color: #4c95af; color: white; cursor: pointer; border-radius: 20px;"
+    [ngClass]="{'active': activatedUser === myId, 'highlight': activatedUser === myId}"
+    (click)="changeActiveUser(myId)">
+    <i class="fas fa-user mr-1"></i>User 1
+  </button>
+</div>
+
+<div class="mockup-phone border-primary">
+  <div class="camera"></div>
+  <div class="display">
+    <div
+      class="artboard bg-base-300 flex gap-8 p-4 flex-col justify-end phone-1"
+    >
+      <app-chat *ngIf="myId && contactId" (messageDeleted)="removeMessage($event)" [myId]="myId"  [contactId]="contactId" [messages]="messages()" class="flex-1"></app-chat>
+      <app-chat-input [activeUserId]="activatedUser" [myId]="myId" [(value)]="newMessage"></app-chat-input>
+    </div>
+  </div>
+</div>
